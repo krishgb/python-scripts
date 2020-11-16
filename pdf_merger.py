@@ -12,6 +12,9 @@ for pdf in files:
 
 files = files[:index]
 
+if len(files) == 1:
+    print("\nThere is only one pdf file. You should have atleast two pdf files to merge.") 
+
 # pdf merger function
 def pdf_merger():
     merger = PyPDF2.PdfFileMerger()
@@ -20,6 +23,7 @@ def pdf_merger():
     print('\nSuccessfully Merged!')
     merger.write(input('\nPlease give a new name for your merged pdf: ') + '.pdf')
     print('\nAll done.')
+
 try: 
     if len(files) > 1:
         to_be_merged = input('\nEnter the numbers of the pdf you want to merge\n').split(' ')
